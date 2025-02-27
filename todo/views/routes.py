@@ -6,13 +6,10 @@ api = Blueprint('api', __name__, url_prefix='/api/v1')
 def health():
     return jsonify({"status": "ok"})
 
-@api.route('/todos/<int:id>', methods=['GET'])
-def get_todos(id):
-    if (id == None):
-        id = 1
-
+@api.route('/todos', methods=['GET'])
+def get_todos():
     return jsonify([{
-        "id": id,
+        "id": 1,
         "title": "Watch CSSE6400 Lecture",
         "description": "Watch the CSSE6400 lecture on ECHO360 for week 1",
         "completed": True,
@@ -23,11 +20,11 @@ def get_todos(id):
     
 
 @api.route('/todos', methods=['POST'])
-def create_todo(id):
+def create_todo():
     return (
         jsonify(
             {
-                "id": id,
+                "id": 1,
                 "title": "Watch CSSE6400 Lecture",
                 "description": "Watch the CSSE6400 lecture on ECHO360 for week 1",
                 "completed": True,
